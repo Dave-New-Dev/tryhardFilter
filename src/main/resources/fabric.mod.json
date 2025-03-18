@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "tryhardfilter",
-	"version": "${1.2}",
+	"version": "${1.4}",
 	"name": "tryhardfilter",
 	"description": "A filter for playing on that one server the bum's server friend owns",
 	"authors": [
@@ -16,7 +16,7 @@
 	"environment": "client",
 	"entrypoints": {
 		"main": [
-			"dan.tryhardfilter.Tryhardfilter"
+			"dan.tryhardfilter.Tryhardmain"
 		]
 	},
 	"mixins": [

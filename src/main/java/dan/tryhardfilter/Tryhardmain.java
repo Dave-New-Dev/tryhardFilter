@@ -5,7 +5,7 @@ import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Tryhardfilter implements ModInitializer {
+public class Tryhardmain implements ModInitializer {
 	public static final String MOD_ID = "tryhardfilter";
 
 	// This logger is used to write text to the console and the log file.
@@ -22,3 +22,4 @@ public class Tryhardfilter implements ModInitializer {
 		LOGGER.info("Wsg world");
 	}
 }
+
