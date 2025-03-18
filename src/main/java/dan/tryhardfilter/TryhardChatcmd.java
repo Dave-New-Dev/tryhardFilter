@@ -4,21 +4,27 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.text.Text;
+import com.mojang.brigadier.arguments.StringArgumentType;
 
-public class TCommandMod implements ClientModInitializer {
+public class TryhardChatcmd implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
             dispatcher.register(ClientCommandManager.literal("t")
-                    .then(ClientCommandManager.argument("message", net.minecraft.command.argument.MessageArgumentType.message())
+                    .then(ClientCommandManager.argument("message", StringArgumentType.greedyString())
                             .executes(context -> {
-                                String message = net.minecraft.command.argument.MessageArgumentType.getMessage(context, "message").getString();
+                                String message = StringArgumentType.getString(context, "message");
                                 message = message.replace("ryan", "tryhard");
-                                MinecraftClient.getInstance().player.sendChatMessage(message);
+
+                                MinecraftClient client = MinecraftClient.getInstance();
+                                if (client.player != null) {
+                                    client.player.networkHandler.sendChatMessage(message);
+                                }
                                 return 1;
                             }))
             );
         });
     }
 }
+
+
