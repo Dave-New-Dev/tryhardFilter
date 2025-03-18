@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "tryhardfilter",
+	"version": "${1.1}",
+	"name": "tryhardfilter",
+	"description": "A filter for playing on tryhards server",
+	"authors": [
+		"DanPlus6"
+	],
+	"contact": {
+		"homepage": "https://localhost",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/tryhardfilter/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"main": [
+			"dan.tryhardfilter.Tryhardfilter"
+		]
+	},
+	"mixins": [
+		"tryhardfilter.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.21.4",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
