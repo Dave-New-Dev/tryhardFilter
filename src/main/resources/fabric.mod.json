@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "tryhardfilter",
-	"version": "${1.4}",
+	"version": "${version}",
 	"name": "tryhardfilter",
 	"description": "A filter for playing on that one server the bum's server friend owns",
 	"authors": [
@@ -9,7 +9,7 @@
 	],
 	"contact": {
 		"homepage": "https://localhost",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/Dave-New-Dev/tryhardFilter"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/tryhardfilter/icon.png",
