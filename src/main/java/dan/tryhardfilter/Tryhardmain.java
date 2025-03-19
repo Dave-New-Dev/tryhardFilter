@@ -2,24 +2,37 @@ package dan.tryhardfilter;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.client.message.v1.ClientSendMessageEvents;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.regex.Pattern;
+
 public class Tryhardmain implements ModInitializer {
 	public static final String MOD_ID = "tryhardfilter";
-
-	// This logger is used to write text to the console and the log file.
-	// It is considered best practice to use your mod id as the logger's name.
-	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	@Override
-	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
+    public void onInitialize() {
+        LOGGER.info("Wsg world (●'◡'●)"); //logger 👍
 
-		LOGGER.info("Wsg world");
-	}
+        ClientSendMessageEvents.MODIFY_CHAT.register((message) -> {
+// old code using case-sensitive finding
+//            if (message.contains("ryan")) {
+//                message = message.replaceAll("(?i)ryan","tryhard");
+//                return message;
+//            }
+
+            // new code using case-insensitive finding (using pattern is more performant than setting to lower case)
+            if (Pattern.compile(Pattern.quote("ryan"), Pattern.CASE_INSENSITIVE).matcher(message).find()) {
+                message = message.replaceAll("(?i)ryan","tryhard");
+                return message;
+            }
+            return message;
+        });
+    }
 }
 
+
+
+;
