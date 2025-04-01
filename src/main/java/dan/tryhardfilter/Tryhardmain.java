@@ -14,16 +14,9 @@ public class Tryhardmain implements ModInitializer {
 
 	@Override
     public void onInitialize() {
-        LOGGER.info("Wsg world (●'◡'●)"); //logger 👍
+        LOGGER.info("[tryhardfilter] | Wsg world (●'◡'●)"); //logger 👍
 
         ClientSendMessageEvents.MODIFY_CHAT.register((message) -> {
-// old code using case-sensitive finding
-//            if (message.contains("ryan")) {
-//                message = message.replaceAll("(?i)ryan","tryhard");
-//                return message;
-//            }
-
-            // new code using case-insensitive finding (using pattern is more performant than setting to lower case)
             if (Pattern.compile(Pattern.quote("ryan"), Pattern.CASE_INSENSITIVE).matcher(message).find()) {
                 message = message.replaceAll("(?i)ryan","tryhard");
                 return message;
